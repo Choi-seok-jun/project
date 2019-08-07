@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            let bar_percent = 10;
+            const bar_interval = setInterval(() => {
+                // console.log(bar_percent);
+                if (bar_percent == 100) {
+                    clearInterval(bar_interval);
+                    alert("인증이 완료되었습니다.");
+                    return
+                }
+                bar_percent = bar_percent + 10;
+                $('#bar_status').attr('style', "width :" + bar_percent + "%");
+                $('#bar_status').html(bar_percent + "%");
+            }, 500);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Animated Progress Bar</h2>
+        <p>The .active class animates the progress bar:</p>
+        <div class="progress">
+            <div id="bar_status" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40"
+                aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                10%
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
