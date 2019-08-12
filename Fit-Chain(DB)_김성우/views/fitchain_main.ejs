@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Fit-Chain</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="javascripts/main.js"></script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    #main_photo img {
+      margin-bottom: -6px;
+      margin-top: 16px;
+      opacity: 0.8;
+      cursor: pointer
+    }
+
+    #main_photo img:hover {
+      opacity: 1
+    }
+
+    #coin_pay {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+
+  <div class="site-wrap" id="home-section">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <div class="top-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <a href="#" class=""><span class="mr-2  icon-envelope-open-o"></span> <span
+                class="d-none d-md-inline-block">업데이트</span></a>
+            <span class="mx-md-2 d-inline-block"></span>
+            <a href="#" class=""><span class="mr-2  icon-phone"></span> <span
+                class="d-none d-md-inline-block">010-1234-5678</span></a>
+
+
+            <div class="float-right">
+              <span class="mx-md-2 d-inline-block"><%= user_name %>님 환영합니다.</span>
+              <a id="logout" href="/logout" onclick="alert('로그아웃 되었습니다.')" class=""><span class="mr-2  icon-close2"></span> <span
+                  class="d-none d-md-inline-block">logout</span></a>
+              <span class="mx-md-2 d-inline-block"></span>
+              <a href="#" class=""><span class="mr-2  icon-twitter"></span> <span
+                  class="d-none d-md-inline-block">Twitter</span></a>
+              <span class="mx-md-2 d-inline-block"></span>
+              <a href="#" class=""><span class="mr-2  icon-facebook"></span> <span
+                  class="d-none d-md-inline-block">Facebook</span></a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+        
+      <div class="container">
+        <div class="row align-items-center position-relative">
+
+
+          <div class="site-logo">
+            <a href="/main" class="text-black"><span class="text-primary">Fit-Chain</a>
+          </div>
+        
+
+          <div class="col-12">
+            <nav class="site-navigation text-right ml-auto " role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                <li><a href="#home-section" class="nav-link">Main</a></li>
+                <li><a href="/upload" class="nav-link">Upload</a></li>
+                <li><a href="/myinfo" class="nav-link">My</a></li>
+              </ul>
+            </nav>
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </header>
+
+    <div class="ftco-blocks-cover-1">
+      <div class="ftco-cover-1 overlay" style="background-image: url('images/depot_hero_1.jpg')">
+        <div class="container">
+          <div class="row align-items-center justify-content-center text-center">
+            <div class="col-lg-6">
+              <h1>BlockChain &amp; Fashion</h1>
+              <p class="mb-5">업데이트</p>
+              <form action="/main" method="GET">
+                <div class="form-group d-flex">
+                  <input name="tag_search" type="text" class="form-control" placeholder="해시태그검색">
+                  <input type="submit" class="btn btn-primary text-white px-4" value="검색">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-section" id="about-section">
+
+
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+      
+                <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="">
+                  <div class="block-counter-1">
+                    <span class="number"><span data-number="19">0</span>yr</span>
+                    <span class="caption">년도</span>
+                  </div>
+                </div>
+      
+                <% if (loginState) { %>
+                  <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="block-counter-1">
+                      <span class="number"><span data-number="<%=send_coin%>">0</span>$</span>
+                      <span class="caption">총 코인</span>
+                    </div>
+                  </div>
+                  
+                  
+                  <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="block-counter-1">
+                      <span class="number"><span data-number="<%=gallery%>">0</span>개</span>
+                      <span class="caption">총 게시물</span>
+                    </div>
+                  </div>
+        
+                  <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="block-counter-1">
+                      <span class="number"><span data-number="<%=member%>">0</span>명</span>
+                      <span class="caption">총 가입자</span>
+                    </div>
+                  </div>
+                  <% } %>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <!-- END .ftco-cover-1 -->
+      <form id="main_photo">
+        <div class="site-section ftco-service-image-1 pb-5">
+          <div class="container">
+            <div class="owl-carousel owl-all">
+              <%if(main_photo_plag){%>
+
+              <% for (var i in main_photo.reverse()) { %>
+              <div class="service text-center" id="main_photo">
+                <img src="<%=main_photo[i].img_path%>" alt="<%=main_photo[i].name%>" class="img-fluid"
+                  onclick="onClick(this)">
+                <br>
+                <div class="block-social-1">
+                  <button id="<%=main_photo[i].num%>" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                      class="icon-plus"></span></button>
+                </div>
+                <br>
+                <p>해시태그 : #<%=main_photo[i].tag%></p>
+
+              </div>
+              <% } %>
+
+              <%} else {%>
+
+              <% for (var i in main_photo.reverse()) { %>
+              <div class="service text-center" id="main_photo">
+                <img src="<%=main_photo[i].img_path%>" alt="<%=main_photo[i].name%>" class="img-fluid"
+                  onclick="onClick(this)">
+                <br>
+                <div class="block-social-1">
+                  <button id="coin_btn" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                      class="icon-plus"></span></button>
+                </div>
+                <br>
+                <p>해시태그 : #<%=main_photo[i].tag%></p>
+
+              </div>
+              <% } %>
+
+              <% } %>
+
+              
+
+            </div>
+          </div>
+        </div>
+
+    </div>
+    </form>
+
+
+    <!-- modal 기능 -->
+
+    <div id="block" class="w3-modal w3-black" style="padding-top:40" onclick="this.style.display='none'">
+      <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="chain" class="w3-image" style="width: 500px">
+        <p id="caption"></p>
+      </div>
+    </div>
+
+
+    <script>
+
+      function onClick(element) {
+        document.getElementById("chain").src = element.src;
+        document.getElementById("block").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script>
+
+
+  </div>
+  </div>
+  </div>
+
+
+
+
+  <div class="site-section" id="team-section">
+    <div class="container">
+      <div class="row mb-5 justify-content-center">
+        <div class="col-md-7 text-center">
+          <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+            <h2>랭킹</h2>
+            <p>최대 코인 탑 3</p>
+          </div>
+        </div>
+      </div>
+
+      <form action="/main" method="POST">
+        <div class="owl-carousel owl-all mb-5">
+          <div class="block-team-member-1 text-center rounded h-100">
+            <figure>
+              <img src="<%=rank_1_profile%>" alt="Image" class="img-fluid rounded-circle">
+            </figure>
+            <h3 class="font-size-20 text-black"><%=rank_1_name%></h3>
+            <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">1위</span>
+            <p class="mb-4">MAX COIN : <%=rank_1_coin%></p>
+            <div class="block-social-1">
+              <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                  class="icon-facebook"></span></a>
+              <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                  class="icon-twitter"></span></a>
+              <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                  class="icon-instagram"></span></a>
+            </div>
+          </div>
+      </form>
+
+
+        <div class="block-team-member-1 text-center rounded h-100">
+          <figure>
+            <img src="<%=rank_2_profile%>" alt="Image" class="img-fluid rounded-circle">
+          </figure>
+          <h3 class="font-size-20 text-black"><%=rank_2_name%></h3>
+          <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">2위</span>
+          <p class="mb-4">MAX COIN : <%=rank_2_coin%></p>
+          <div class="block-social-1">
+            <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                class="icon-facebook"></span></a>
+            <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                class="icon-twitter"></span></a>
+            <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                class="icon-instagram"></span></a>
+          </div>
+        </div>
+
+        <div class="block-team-member-1 text-center rounded h-100">
+          <figure>
+            <img src="<%=rank_3_profile%>" alt="Image" class="img-fluid rounded-circle">
+          </figure>
+          <h3 class="font-size-20 text-black"><%=rank_3_name%></h3>
+          <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">3위</span>
+          <p class="mb-4">MAX COIN : <%=rank_3_coin%></p>
+          <div class="block-social-1">
+            <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                class="icon-facebook"></span></a>
+            <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                class="icon-twitter"></span></a>
+            <a href="#" class="btn border-w-2 rounded primary-primary-outline--hover"><span
+                class="icon-instagram"></span></a>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

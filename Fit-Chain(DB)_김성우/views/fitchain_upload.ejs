@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="javascripts/upload.js"></script>
+
+        <style>
+
+            body {
+            font-family: sans-serif;
+            background-color: #0c0c0c;
+            }
+
+            .file-upload {
+            background-color: #ffffff;
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 150px;
+            padding: 20px;
+            }
+
+            .file-upload-btn {
+            width: 100%;
+            margin: 0;
+            color: rgb(253, 239, 239);
+            background: rgb(52, 53, 52);
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            border-bottom: 4px solid rgb(255, 255, 255);
+            transition: all .2s ease;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            }
+
+            .file-upload-btn:hover {
+            background: rgb(0, 0, 0);
+            color: #ffffff;
+            transition: all .2s ease;
+            cursor: pointer;
+            }
+
+            .file-upload-btn:active {
+            border: 0;
+            transition: all .2s ease;
+            }
+
+            .file-upload-content {
+            display: none;
+            text-align: center;
+            }
+
+            .file-upload-input {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+            cursor: pointer;
+            }
+
+            .image-upload-wrap {
+            margin-top: 20px;
+            border: 4px dashed rgb(0, 0, 0);
+            position: relative;
+            }
+
+            .image-dropping,
+            .image-upload-wrap:hover {
+            background-color: rgb(56, 56, 56);
+            border: 4px dashed #fdfdfd;
+            }
+
+            .image-title-wrap {
+            padding: 0 15px 15px 15px;
+            color: #222;
+            }
+
+            .drag-text {
+            text-align: center;
+            }
+
+            .drag-text h3 {
+            font-weight: 100;
+            text-transform: uppercase;
+            color: rgb(224, 224, 224);
+            padding: 60px 0;
+            }
+
+            .file-upload-image {
+            max-height: 200px;
+            max-width: 200px;
+            margin: auto;
+            padding: 20px;
+            }
+
+            .remove-image {
+            width: 200px;
+            margin: 0;
+            color: #fff;
+            background: #1d1d1d;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            border-bottom: 4px solid #dadada;
+            transition: all .2s ease;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            }
+
+            .remove-image:hover {
+            background: #818181;
+            color: #ececec;
+            transition: all .2s ease;
+            cursor: pointer;
+            }
+
+            .remove-image:active {
+            border: 0;
+            transition: all .2s ease;
+            }
+
+            .btn-black{
+                background-color: #000 !important;
+                color: #fff;
+                text-align: center
+            }
+
+            .btn:hover {
+              border: 1px solid #1d1a1a;
+              background-color: rgb(78, 76, 76) !important;
+              color: #ffffff;
+            }
+
+        </style>
+    </head>
+    <body>
+        <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+
+        <form id="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
+          <div class="file-upload">
+            
+            <input type="text" placeholder="태그입력" id="tag_name" name="tag_name">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/main">닫기</a>
+            
+              <div class="image-upload-wrap">
+                <input class="file-upload-input" type='file' onchange="readURL(this);" name="imgFile" id="imgFile" accept="image/*" />
+                <div class="drag-text">
+                  <h3>Drag and drop a file or select add Image</h3>
+                </div>
+              </div>
+
+              <div class="file-upload-content">
+                <img class="file-upload-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                </div>
+              </div>
+              <br>
+              <div align="center">
+                <p><input id="upload_btn" type="submit" class="btn btn-black" value="Upload" ></p>
+              </div>
+            </div>
+          </form>
+
+            
+    </body>
+</html>

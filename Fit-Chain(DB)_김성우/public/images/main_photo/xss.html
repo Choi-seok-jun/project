@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function onClickString2() {
+			var a = document.URL;
+			a = unescape(a);
+			a = a.substring(a.indexOf("message=")+8, a.length);
+			var regex = /^([a-zA-Z0-9+\s])*$/;
+			if (regex.test(a)) {
+				document.write(a);
+			}
+		}
+		
+		function onClickString() {
+			var a = document.URL;
+			a = unescape(a);
+			a = a.substring(a.indexOf("message=")+8, a.length);
+			a = sanitize(a);
+			document.write(a);			
+		}
+		
+		function sanitize(str) {
+			var d = document.createElement("div");
+			d.appendChild(document.createTextNode(str));
+			return d.innerHTML;
+		}
+	</script>
+	<div onclick="onClickString()">
+		전달된 파라미터의 값을 확인하려면 여기를 클릭하세요.
+	</div>
+
+</body>
+</html>
+
+

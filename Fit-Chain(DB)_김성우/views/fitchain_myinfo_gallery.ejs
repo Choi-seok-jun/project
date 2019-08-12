@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <script src="javascripts/myinfo.js"></script>
+
+
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+
+
+    .main-head {
+      height: 150px;
+      background: #FFF;
+    }
+
+    .sidenav {
+      height: 100%;
+      background-color: #000;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+
+    .main {
+      padding: 0px 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .login-form {
+        margin-top: 10%;
+      }
+
+      .register-form {
+        margin-top: 10%;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .main {
+        margin-left: 30%;
+      }
+
+      .sidenav {
+        width: 30%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+      }
+
+      .login-form {
+        margin-top: 30%;
+      }
+
+      .register-form {
+        margin-top: 20%;
+      }
+    }
+
+
+    .login-main-text {
+      margin-top: 20%;
+      padding: 60px;
+      color: #fff;
+    }
+
+    .login-main-text h2 {
+      font-weight: 300;
+    }
+
+    .btn-black {
+      background-color: #000 !important;
+      color: #fff;
+    }
+
+    #charge_btn {
+      background-color: rgb(255, 0, 0) !important;
+      width: 100% !important;
+      font-size: 15px;
+      color: #000;
+    }
+
+    #delete_btn {
+      background-color: rgb(0, 0, 0) !important;
+      width: 100% !important;
+      font-size: 15px;
+      color: rgb(255, 255, 255)
+    }
+
+    .button_group {
+      display: inline-block;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .button_group button {
+      float: left;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="sidenav">
+    <div class="login-main-text">
+      <h1>Fit-Chain<br> 내 게시물</h1>
+
+      <p>
+        <h2>업데이트 중입니다...</h2>
+      </p>
+      <br><br>
+      <a href="/myinfo">
+        <h3>프로필</h3>
+      </a>
+
+      <a href="/myinfo_update">
+        <h3>회원정보수정</h3>
+      </a> <br><br>
+      <a href="/main">
+        <h3> <<< 홈으로</h3>
+      </a><br><br><br><br>
+
+      <% if(my_gallery_plag){ 
+        var net_coin = 0;
+      
+        for (var i in my_gallery.reverse()) { 
+          net_coin = net_coin + my_gallery[i].plus_coin;
+          }%>
+          <h3> 총 받은 코인  :  &nbsp; <%=net_coin%> $  </h3>
+          <br>  *받은 코인은 블록체인 트랜젝션 완료 후 지급 됩니다.*  
+      <% } %>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="main">
+    <div class="col-md-6 col-sm-12">
+      <div class="login-form">
+        <div class="form-group">
+
+
+          <table border="1px">
+            <td>
+              <div class="site-section ftco-service-image-1 pb-5">
+                <div class="container">
+                  <div class="owl-carousel owl-all">
+                    <div class="service text-center" id="main_photo">
+                      <img src="images/depot_img_1.jpg" alt="Image" class="img-fluid" onclick="onClick(this)">
+                      <br>
+                      <div class="block-social-1">
+
+                      </div>
+                      <br>
+
+                    </div>
+            </td>
+            <td>
+              <div class="service text-center" id="main_photo">
+                <img src="images/depot_img_1.jpg" alt="Image" class="img-fluid" onclick="onClick(this)">
+                <br>
+                <div class="block-social-1">
+
+                </div>
+                <br>
+
+              </div>
+            </td>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> -->
+ 
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+  padding: 2rem;
+}
+.gallery{
+  width: 100%;
+  max-width: 960px;
+  min-height: 100vh;
+  margin: 2rem auto;
+  
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gallery-item{
+  box-shadow: 2px 2px 8px -1px #3498DB;
+  width: 300px;
+  height: 300px;
+  margin: 30px;
+  background: #000;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.gallery-item-image{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: lightblue;
+  z-index:20;
+  -webkit-transition:all .5s ease;
+  transition: all .5s ease;
+  bottom:0;
+  overflow: hidden;
+
+}
+
+.gallery-item:hover .gallery-item-image{
+  bottom: 80px;
+}
+
+.gallery-item-description{
+  color:white;
+  font-size: .8rem;
+  width: 100%;
+  height: 80px;
+  padding: .5rem .8rem;
+  background: #3498DB;
+  position: absolute;
+  bottom:0;
+}
+</style>
+
+<div class="container" style="padding-left: 20%">
+  <div class="gallery">
+ 
+    <% if(my_gallery_plag){ %>
+
+      <% for (var i in my_gallery.reverse()) { %>
+      <div class="gallery-item">
+          <div class="gallery-item-image">
+            <img style="width: 300px; height:300px" src="<%=my_gallery[i].img_path%>"></div>
+          <div class="gallery-item-description">
+            <h3><%=my_gallery[i].tag%></h3><span>받은 코인  : <%=my_gallery[i].plus_coin%> $ </span></div>
+        </div>
+      <% } %>
+    <% } %>
+   
+  </div>
+</div>
+
+
+
+
+
+
+
+</body>
+
+</html>
